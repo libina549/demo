@@ -1,0 +1,37 @@
+<div class="bg-light">
+    <div class="text-center" *ngIf="!data">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+   <ul>
+       <!-- <li *ngFor="let i of data ">{{ i.title }}</li> -->
+       <li *ngFor="let i of data ">{{ i.name }}</li>
+
+   </ul>
+
+    </div>
+
+
+    <!-- <p>
+        <ng-content select=".title"></ng-content>
+    </p>
+    <p>
+        <ng-content select=".price"></ng-content>
+    </p> -->
+
+  
+
+    <!-- <ng-container class="title">
+        {{ i.title }}
+    </ng-container>
+    <ng-container class="price">
+        {{ i.price}}
+    </ng-container>
+
+
+    <button (click)="addToCart()">Add to cart</button>
+    <button (click)="rmFromCart()">Remove</button>
+
+
+ <!-- </div>  -->

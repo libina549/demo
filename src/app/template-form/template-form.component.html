@@ -1,0 +1,31 @@
+<form #f="ngForm" (ngSubmit)="onSave(f)">
+    
+    <div class="form-group">
+      <label >Username</label>
+      <input  required minlength="4" maxlength="8" type="text" ngModel name="username" #username='ngModel' class="form-control" placeholder="username">
+      <div *ngIf="username.invalid  && username.touched">
+          <!-- Invalid -->
+          <p *ngIf="username.errors.required" class="text-danger">*Required field</p>
+          <p *ngIf="username.errors.minlength" class="text-danger">*Requiredlength {{ username.errors.minlength.requiredLength }}  actual length is {{ username.errors.minlength.actualLength }}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label >Password</label>
+      <input type="text" ngModel name="password" #password='ngModel' class="form-control" placeholder="password">
+      
+    </div>
+    <div class="form-group">
+        <label >Email</label>
+        <input required type="text" ngModel name="email" #email='ngModel' pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" class="form-control" placeholder="email">
+        <div *ngIf="email.invalid  &&  email.touched">
+            <p *ngIf="email.errors.required" class="text-danger">*Required Field</p>
+            <p *ngIf="email.errors.pattern" class="text-danger">*Invalid Email Format</p>
+      </div>
+        
+      </div>
+      <div class="form-group">
+       
+        <input type="submit" id="" value="save" class="btn btn-primary" [disabled]="f.invalid">
+        
+      </div>
+</form>

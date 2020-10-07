@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onSave()" >
+    
+    <div class="form-group">
+      <label >Username</label>
+      <input   type="text"  formControlName="username" class="form-control" placeholder="username">
+      <div *ngIf="form.get('username').invalid  && form.get('username').touched">
+          <p *ngIf="form.hasError('required','username')" class="text-danger">*Required field</p>
+          <p *ngIf="form.hasError('checkSpace','username')" class="text-danger">*No space allowed</p>
+          <p *ngIf="form.hasError('minlength','username')" class="text-danger">*Requiredlength {{ form.get('username').errors.minlength.requiredLength }}  actual length is {{ form.get('username').errors.minlength.actualLength }}</p>
+      </div>
+      <div *ngIf="form.get('username').pending"  class="spinner-border spinner-border-sm" style="position: absolute;right: -10px;" role="status" aria-hidden="true"></div>
+    </div>
+    <div class="form-group">
+      <label >Password</label>
+      <input type="text" formControlName="password"  class="form-control" placeholder="password">
+      
+    </div>
+    <div class="form-group">
+        <label >Email</label>
+        <input type="text"  formControlName="email" class="form-control" placeholder="email">
+        <div *ngIf="form.get('email').invalid  &&  form.get('email').touched">
+            <p *ngIf="form.hasError('required','email')" class="text-danger">*Required Field</p>
+            <p *ngIf="form.hasError('email','email')" class="text-danger">*Invalid Email Format</p>
+      </div>
+        
+      </div>
+      <div class="form-group">
+       
+        <input type="submit"  value="save" class="btn btn-primary" >
+        
+      </div>
+</form>
+

@@ -1,0 +1,218 @@
+<!-- <app-nav></app-nav> -->
+<!-- <button class="btn btn-danger">click</button> -->
+
+
+
+
+<!-- interpolation -->
+<!-- <input type="text" value="{{ title }}"> -->
+
+
+<!-- <h4>{{ title }}</h4> -->
+
+
+
+
+<!-- property binding -->
+<!-- <input type="text" [value]=" title "> -->
+<!-- <input type="text" disabled="false"> -->
+
+<!-- <input type="text" [disabled]="state"> -->
+
+
+
+<!-- event binding -->
+<!-- <button class="btn btn-danger" (click)="changeState()">click</button><br> -->
+
+<!-- <input type="text" [value]=" title " (keyup)="changeTitle(e)" #e> -->
+
+
+
+<!-- two way binding -->
+<!-- <br>
+<input type="text" name="title" [(ngModel)]="title"> -->
+
+
+
+
+<!-- <br> -->
+<!-- {{ list }} -->
+<!-- <ul>
+    <li *ngFor='let i of list,let j = index, let k = even' >value = {{ i }},index = {{ j }},even = {{ k }}</li>
+</ul> -->
+
+
+
+
+<!-- <h1 *ngIf="state;then hello else bye">HELLO</h1>
+
+<ng-template #hello>
+   <h1> HELLO</h1>
+</ng-template>
+<ng-template #bye>
+    <h1>BYE</h1>
+</ng-template>
+
+<p appModify>hi</p> -->
+
+
+
+
+<!-- <button class="btn btn-sm btn-secondary" (click)="incrementFontSize()">+</button> -->
+
+<!-- <div> -->
+
+
+    <!-- <button class="btn btn-success " [ngClass]="btnClass" [ngStyle]="btnStyle" (click)="setList()">list view</button>
+    <button class="btn btn-danger" (click)="setGrid()">grid view</button> -->
+
+<!-- 
+    <button class="btn btn-success " [class.active]="viewMode=='list'" [class.btn-lg]="viewMode=='list'">list view</button>
+    <button class="btn btn-danger" [class.active]="viewMode=='list'">grid view</button> -->
+
+<!-- </div> -->
+
+
+
+<!-- <div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'list'">List view</div>
+    <div *ngSwitchCase="'grid'">Grid view</div>
+</div> -->
+
+
+
+
+<!-- {{ viewMode }}
+{{ viewMode | uppercase }}
+{{ size | number:'3.1-1'}}  <br>
+{{ size | currency:'USD'}}
+{{ size | currency:'INR'}}
+{{ size | currency:'CAD'}}
+{{ created }}
+<br>
+{{ created  | date}} <br>
+{{ created  | date:'shortDate'}} <br>
+{{ created  | date:'d/M/yy'}} <br>
+{{ title | square }} -->
+
+
+
+
+<!-- <div class="container mt-5"> -->
+
+    <!-- <app-product [title]="data.title" [price]="data.price"></app-product> -->
+
+
+    <!-- <p>{{ count }}</p>
+    <app-product *ngFor="let i of data"
+     [title]="i.title" [price]="i.price"  
+     (change)="eventTriggered($event)">
+    </app-product> -->
+
+
+
+    <!-- <app-body *ngFor="let i of data">
+        <div class="title">
+            {{ i.title }}
+        </div>
+        <div class="price">
+            {{ i.price }}
+        </div>
+
+    </app-body> -->
+
+
+     <!-- static -->
+    <!-- <app-body></app-body> -->
+
+    <!-- static -->
+    <!-- <app-nav></app-nav> -->
+
+
+    <!-- dynamic -->
+    <router-outlet></router-outlet>
+    <a routerLink="body">body</a>
+    <a routerLink="nav">nav</a>
+
+<!-- </div> -->
+
+ <!-- <app-template-form>
+    
+</app-template-form> -->
+
+<app-reactive-form></app-reactive-form>
+
+
+<div class="container-fluid"> 
+    <div class="row" style="height:80px"> 
+        <div class="col-3"></div> 
+        
+    </div> 
+  
+    
+    <div class="row mt-1" style="height:80px;"> 
+        
+        <div class="col-3 d-none col-md-3 d-md-block"></div> 
+
+
+        <div class="col-12 col-md-6 d-flex"> 
+            
+            <input [(ngModel)]="newTask" type="text" value="" class="col-10 form-control" style="width:300px;"> 
+             <button (click)="addToList()" class="btn btn-success text-dark " style="width:300px; height:fit-content;" >  add </button> 
+        </div> 
+        <div class="col-3 d-none col-md-3 d-md-block"></div> 
+    </div>  
+
+    
+
+    <div *ngFor="let i of items; let index = index;" class="row mt-1"  > 
+        <div *ngIf ="!i.completed">
+        <input type="checkbox" class="row mt-1" (click)="move(index)">
+        <div class="col-3 d-none col-md-3 d-md-block">
+           
+        </div> 
+  
+        <!-- <div class="col-5 col-md-6 ">  -->
+            <div>
+            <input (click)="move(index)" type="checkbox" name="" id="txt" class=" text-dark h6"  >{{ i.task }} 
+  
+            <input (click)="deleteTask(index)" type="button" id="txt" value="Delete" class="col-7 btn btn-danger"  (click)="move(index)"> </div>
+        
+        
+        </div> 
+          
+    <!-- </div> -->
+        <!-- <div class="col-3 d-none col-md-3 d-md-block"></div>  -->
+
+    </div> 
+</div>
+<div>
+<h4>Completed Tasks</h4><div *ngFor="let i of items; let index = index;" class="row mt-1"  > 
+    <div *ngIf ="i.completed">
+    <input type="checkbox" class="row mt-1" (click)="move(index)">
+    <!-- <div class="col-3 d-none col-md-3 d-md-block">
+       
+    </div>  -->
+
+    <div class="col-5 col-md-1 "> 
+        
+        <input (click)="move(index)" type="checkbox" name="" id="txt" class=" text-dark h6"  >{{ i.task }} 
+
+        <input (click)="deleteTask(index)" type="button" id="txt" value="Delete" class="col-7  btn btn-danger"  (click)="move(index)"> </div>
+    
+    
+    
+      
+</div>
+    <!-- <div class="col-3 d-none col-md-3 d-md-block"></div>  -->
+
+</div> 
+
+</div>
+
+
+
+
+
+
+
